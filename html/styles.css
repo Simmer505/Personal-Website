@@ -1,14 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
     background-color: #151515;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #c5c5c5;
+    color: #efefef;
 }
 
 a {
@@ -16,13 +15,12 @@ a {
 }
 
 header {
-    padding: 2rem;
     background-color: #212121;
 }
 
 h1 {
     font-size: 50px;
-    line-height: 1.2;
+    line-height: 1;
     letter-spacing: -1px;
     color: #fff;
 }
@@ -50,15 +48,9 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 5% 45% 10% 35% 5%;
-    grid-template-rows: 10% 40% 5% 35% 10%;
-    height: 80vh;
-    grid-template-areas:
-        "empty header header header empty"
-        "empty projects empty contact empty"
-        "empty about empty empty empty"
-        "empty empty empty empty"
-        "footer footer empty footer footer";
+    min-height: 100vh;
+    grid-template-columns: 1fr 5fr 2fr 5fr 1fr;
+    grid-template-rows: 2fr minmax(1px, 1fr) 10fr minmax(1px, 1fr) 10fr minmax(1px, 1fr) 2fr;
 }
 
 .grid-item {
@@ -66,27 +58,28 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    justify-content: center;
+}
+
+.header {
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 7;
 }
 
 .about-section {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 4;
-    grid-row-end: 4;
+    grid-column: 2;
+    grid-row: 3;
+    padding: 10%;
     background-color: #484554;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .projects-section {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    grid-column: 2;
+    grid-row: 5;
     background-color: #4F5A6E;
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -96,31 +89,24 @@ h2 {
 .projects-section ul li {
     height: 50px;
     display: flex;
-    align-items: center;
     justify-content: center;
     margin-bottom: 10px;
 }
 
-.projects-section a {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .contact-section {
-    grid-column-start: 4;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-column: 4;
+    grid-row-start: 3;
+    grid-row-end: 5;
 
     justify-content: flex-start;
 }
 
+.footer-section {
+    grid-row: 7;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
 footer {
-    grid-column-start: 5;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-start: 5;
     background-color: #212121;
 }
